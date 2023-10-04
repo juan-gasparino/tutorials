@@ -1,33 +1,33 @@
 ﻿using System.Collections.Generic;
 namespace Cubes
 {
-    class Cube
+  class Cube
+  {
+    public List<float[,]> pointsCube { get; set; }
+    public Cube(float dCenter, float xMiddle, float yMiddle, float zMiddle)
     {
-        public List<float[,]> pointsCube { get; set; }
-        public Cube(float dCenter, float xMiddle, float yMiddle, float zMiddle)
-        {
-            float[,] pointsCubeCoor;
-            float[,] points;
+      float[,] pointsCubeCoor;
+      float[,] points;
 
-            pointsCube = new List<float[,]>();
+      pointsCube = new List<float[,]>();
 
-            pointsCubeCoor = new float[,]{
-                { xMiddle + (-dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (-dCenter / 2) },
-                { xMiddle + (+dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (-dCenter / 2) },
-                { xMiddle + (-dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (-dCenter / 2) },
-                { xMiddle + (-dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (+dCenter / 2) },
-                { xMiddle + (-dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (+dCenter / 2) },
-                { xMiddle + (+dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (+dCenter / 2) },
-                { xMiddle + (+dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (-dCenter / 2) },
-                { xMiddle + (+dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (+dCenter / 2) }
-            };
+      pointsCubeCoor = new float[,]{
+        { xMiddle + (-dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (-dCenter / 2) },
+        { xMiddle + (+dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (-dCenter / 2) },
+        { xMiddle + (-dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (-dCenter / 2) },
+        { xMiddle + (-dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (+dCenter / 2) },
+        { xMiddle + (-dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (+dCenter / 2) },
+        { xMiddle + (+dCenter / 2), yMiddle + (-dCenter / 2), zMiddle + (+dCenter / 2) },
+        { xMiddle + (+dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (-dCenter / 2) },
+        { xMiddle + (+dCenter / 2), yMiddle + (+dCenter / 2), zMiddle + (+dCenter / 2) }
+      };
 
-            for (int i=0;i<8;i++)
-            {
-                points = new float[,]{{ pointsCubeCoor[i,0], pointsCubeCoor[i,1], pointsCubeCoor[i,2] }};
-                pointsCube.Add(points);
-            }
+      for (int i=0;i<8;i++)
+      {
+        points = new float[,]{{ pointsCubeCoor[i,0], pointsCubeCoor[i,1], pointsCubeCoor[i,2] }};
+        pointsCube.Add(points);
+      }
 
-        }
     }
+  }
 }
