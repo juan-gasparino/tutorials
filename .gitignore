@@ -9,6 +9,7 @@ lerna-debug.log*
 
 __pycache__
 node_modules
+playwright-report
 dist
 dist-ssr
 *.local
