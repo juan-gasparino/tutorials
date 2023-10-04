@@ -18,9 +18,10 @@
 
 LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
-const char* message = "Hello, world!";
+const char *message = "Hello, world!";
 
-void setup() {
+void setup()
+{
 
 	pinMode(TX_DATA, OUTPUT);
 	pinMode(TX_CLK, OUTPUT);
@@ -32,7 +33,8 @@ void setup() {
 	lcd.setCursor(0, 0);
 	lcd.print(message);
 
-	for (int byte_idx = 0; byte_idx < strlen(message); byte_idx++) {
+	for (int byte_idx = 0; byte_idx < strlen(message); byte_idx++)
+	{
 
 		char tx_byte = message[byte_idx];
 
@@ -43,7 +45,8 @@ void setup() {
 		lcd.setCursor(byte_idx, 0);
 		lcd.cursor();
 
-		for (int bit_idx = 0; bit_idx < 8; bit_idx++) {
+		for (int bit_idx = 0; bit_idx < 8; bit_idx++)
+		{
 
 			bool tx_bit = tx_byte & (0x80 >> bit_idx);
 
@@ -60,9 +63,7 @@ void setup() {
 			digitalWrite(TX_CLK, HIGH);
 			delay((1000 / TX_RATE) / 2);
 			digitalWrite(TX_CLK, LOW);
-
 		}
-
 	}
 
 	digitalWrite(TX_DATA, digitalRead(PARITY));
@@ -73,9 +74,9 @@ void setup() {
 	digitalWrite(TX_CLK, LOW);
 
 	digitalWrite(TX_DATA, LOW);
-
 }
 
-void loop() {
+void loop()
+{
 	// put your main code here, to run repeatedly:
 }
