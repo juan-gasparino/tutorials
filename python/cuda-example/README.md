@@ -1,1 +1,1 @@
-# tutorials-cuda
+# Cuda test
