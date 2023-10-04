@@ -5,12 +5,13 @@ int num;
 
 // function definition
 // returns the address of num variable
-int& test() {
+int &test()
+{
 	return num;
 }
 
-
-int main() {
+int main()
+{
 
 	// assign 5 to num variable
 	// equivalent to num = 5;
