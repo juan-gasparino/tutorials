@@ -1,13 +1,13 @@
 import { React } from 'react-dom'
 
-import './App.css'
+import { TwitterFollowCard } from './TwitterFollowCard'
 
 export function App () {
   return (
-    <article>
-      <header>
-        <img src="" alt="" />
-      </header>
-    </article>
+    <section className='App'>
+      <TwitterFollowCard userName='jodosmi' initialIsFollowing={false}>
+        John Doe Smith
+      </TwitterFollowCard>
+    </section>
   )
 }
