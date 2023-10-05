@@ -3,6 +3,6 @@ import { App } from './src/App.jsx'
 
 import './styles/App.css'
 
-const root = createRoot(document.getElementById('rootasdq'))
+const root = createRoot(document.getElementById('root'))
 
 root.render(<App />)
