@@ -6,8 +6,33 @@ body {
   margin: 0;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 p {
   margin: 0;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 900px;
+  min-width: 400px;
+  width: 100%;
 }
 
 .form-search-input {
@@ -16,4 +41,16 @@ p {
 
 .error-message {
   color: var(--accent);
+}
+
+.movies {
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
