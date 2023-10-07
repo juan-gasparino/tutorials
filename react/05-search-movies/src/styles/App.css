@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.form-search-input {
+  margin-right: 15px;
+}
+
+.error-message {
+  color: var(--accent);
+}
