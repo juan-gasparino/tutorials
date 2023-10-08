@@ -17,10 +17,10 @@ p {
 }
 
 #root {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0;
   padding: 0;
 }
@@ -30,9 +30,6 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 900px;
-  min-width: 400px;
-  width: 100%;
 }
 
 .form-search-input {
