@@ -1,17 +1,25 @@
 import { useEffect, useState, useRef } from 'react'
-import moviesMock from '../mocks/movies.json'
 
-export function useMovies () {
-  const movies = moviesMock.Search
+export function useMovies ({ search }) {
+  const [responseMovies, setResponseMovies] = useState([])
 
-  const mappedMovies = movies?.map((movie) => ({
-    id: movie.imdbID,
-    title: movie.Title,
-    image: movie.Poster,
-    year: movie.Year
-  }))
+  const getMovies = () => {
+    if (search) {
+      fetch(`https://omdbapi.com/?apikey=4287ad07&s=${search}`)
+        .then(response => response.json())
+        .then(data => {
+          const movies = data.Search?.map(data => ({
+            id: data.imdbID,
+            title: data.Title,
+            image: data.Poster,
+            year: data.Year
+          }))
+          setResponseMovies(movies)
+        })
+    }
+  }
 
-  return { movies: mappedMovies }
+  return { movies: responseMovies, getMovies }
 }
 
 export function useSearch () {
@@ -43,5 +51,5 @@ export function useSearch () {
     setError(null)
   }, [search])
 
-  return { search, updateSearch, error }
+  return { search, updateSearch, isFirstTime, error }
 }

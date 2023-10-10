@@ -6,12 +6,6 @@ body {
   margin: 0;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
 p {
   margin: 0;
 }
@@ -23,6 +17,7 @@ p {
   justify-content: center;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .App {
@@ -30,6 +25,13 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 80%;
 }
 
 .form-search-input {
@@ -50,4 +52,24 @@ p {
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.movie-title {
+  font-size: 1.1rem;
+}
+
+.movie-year {
+  font-size: 0.9rem;
+}
+
+.movie-poster {
+  height: 300px;
 }
