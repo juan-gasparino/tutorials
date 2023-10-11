@@ -1,16 +1,20 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { useMovies, useSearch } from '../hooks/hooks'
 import { Movies } from './Movies'
 
-export function App() {
+export function App () {
+  const [sort, setSort] = useState(false)
   const { search, updateSearch, isFirstTime, error } = useSearch()
-  const { movies, getMovies } = useMovies({ search })
+  const { movies, getMovies } = useMovies({ search, sort })
   const previousSearch = useRef(search)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    getMovies(search)
+    if (previousSearch.current !== event.target.childNodes[0].value) {
+      getMovies(search)
+      previousSearch.current = event.target.childNodes[0].value
+    }
   }
 
   const handleChange = (event) => {
@@ -32,6 +36,7 @@ export function App() {
             name='query'
             placeholder='Star wars, Avengers, Matrix'
           />
+          <button className='form-sort-button' type='checkbox' defaultChecked />
           <button className='form-search-button' type='submit'>Search</button>
         </form>
         {error && <p className='error-message'>{error}</p>}
