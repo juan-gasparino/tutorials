@@ -4,7 +4,7 @@ import { Movies } from './components/Movies.jsx'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import debounce from 'just-debounce-it'
 
-function useSearch () {
+function useSearch() {
   const [search, updateSearch] = useState('')
   const [error, setError] = useState(null)
   const isFirstInput = useRef(true)
@@ -36,7 +36,7 @@ function useSearch () {
   return { search, updateSearch, error }
 }
 
-function App () {
+function App() {
   const [sort, setSort] = useState(false)
 
   const { search, updateSearch, error } = useSearch()
@@ -44,7 +44,6 @@ function App () {
 
   const debouncedGetMovies = useCallback(
     debounce(search => {
-      console.log('search', search)
       getMovies({ search })
     }, 300)
     , [getMovies]
