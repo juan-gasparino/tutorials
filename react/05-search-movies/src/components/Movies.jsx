@@ -1,14 +1,12 @@
-import React from 'react'
-
-const ListMovies = ({ movies }) => {
+function ListOfMovies ({ movies }) {
   return (
     <ul className='movies'>
       {
         movies.map(movie => (
           <li className='movie' key={movie.id}>
-            <h3 className='movie-title'>{movie.title}</h3>
-            <p className='movie-year'>{movie.year}</p>
-            <img className='movie-poster' src={movie.image} alt={movie.title} />
+            <h3>{movie.title}</h3>
+            <p>{movie.year}</p>
+            <img src={movie.image} alt={movie.title} />
           </li>
         ))
       }
@@ -16,9 +14,9 @@ const ListMovies = ({ movies }) => {
   )
 }
 
-const MoviesNotFound = () => {
+function NoMoviesResults () {
   return (
-    <p>Movie not found!</p>
+    <p>No se encontraron películas para esta búsqueda</p>
   )
 }
 
@@ -26,12 +24,8 @@ export function Movies ({ movies }) {
   const hasMovies = movies?.length > 0
 
   return (
-    <>
-      {
-      hasMovies
-        ? <ListMovies movies={movies} />
-        : <MoviesNotFound />
-      }
-    </>
+    hasMovies
+      ? <ListOfMovies movies={movies} />
+      : <NoMoviesResults />
   )
 }
