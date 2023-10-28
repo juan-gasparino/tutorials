@@ -23,7 +23,7 @@ class Vector:
   def __repr__(self): #function strictly for debugging
     return f"X: {self.x}; Y:{self.y}"
 
-  # def __str__(self): #similar to repr but 
+  # def __str__(self):
   #   return f"X: {self.x}; Y:{self.y}"
 
   def __len__(self):
