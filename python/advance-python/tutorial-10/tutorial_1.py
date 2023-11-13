@@ -74,21 +74,26 @@ class Product:
 class Order:
 
   def __init__(self):
-    self.__products: list[Product]
+    self.__products: list[Product] = []
 
   @property
   def products(self):
     return self.__products 
 
-  @products.setter
-  def products(self, value):
-    if set(map(type, value)) == {Product}:
-      self.__products = value
+  def add_product(self, product: Product):
+    if isinstance(product, Product):
+      self.__products.append(product)
     else:
-      logging.error(f'products should be a list[Product]: {value} is not valid')
+      logging.error(f'products should be a list[Product]: {product.__name} is not valid')
 
   def __str__(self):
     return f'the products you bought are the following: {[item.name for item in self.__products]}'
+
+  def show_total_products(self):
+    total_price = sum(item.unit_price + (item.unit_price * item.tax_percent) for item in self.__products)
+    print(f'Products: {[item.name for item in self.__products]}\n' + 
+    f'total price: {total_price}')
+
 
 if __name__ == '__main__':
 
@@ -106,6 +111,31 @@ if __name__ == '__main__':
   prod2.unit_price = 200
   prod2.tax_percent = 0.21
 
+  prod3 = Product()
+  prod3.name = 'Apple'
+  prod3.category = 'Fruit'
+  prod3.shipping_weight = 0.1
+  prod3.unit_price = 200
+  prod3.tax_percent = 0.21
+
+  prod4 = Product()
+  prod4.name = 'Apple'
+  prod4.category = 'Fruit'
+  prod4.shipping_weight = 0.1
+  prod4.unit_price = 200
+  prod4.tax_percent = 0.21
+
+  prod5 = Product()
+  prod5.name = 'Apple'
+  prod5.category = 'Fruit'
+  prod5.shipping_weight = 0.1
+  prod5.unit_price = 200
+  prod5.tax_percent = 0.21
+
   order = Order()
-  order.products = [prod1,prod2]
-  print(order)
+  order.add_product(prod1)
+  order.add_product(prod2)
+  order.add_product(prod3)
+  order.add_product(prod4)
+  order.add_product(prod5)
+  order.show_total_products()
